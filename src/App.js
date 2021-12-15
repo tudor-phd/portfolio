@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+//import Cards from "./components/cards/cards"
+import Sphere from "./components/sphere/sphere"
+import BlackHole from "./components/black-hole/blackHole"
+import Player from './components/sound/sound';
+import ScrollDown from "./components/scroll-down/scrollDown"
+import Quote from "./components/quote/quote"
+import SideMenu from './components/side-menu/sideMenu'
+import sound from './components/sound/mrrobot.mp3';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <SideMenu/>
+     <Player url={sound} />
+     <Quote/>
+     <ScrollDown/>
+      <section className="app-section first-section"><Sphere/><BlackHole/></section>
+      {/* <section className="app-section second-section"><Cards/></section> */}
+
     </div>
   );
 }
