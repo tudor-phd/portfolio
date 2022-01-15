@@ -37,7 +37,7 @@ const SideMenu = () => {
       custom={height}
       ref={containerRef}
     >
-      <motion.div className="background" variants={sidebar} />
+      <motion.div className="background" variants={sidebar}/>
       <Navigation />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>

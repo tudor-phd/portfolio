@@ -1,0 +1,162 @@
+
+.navigation {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 4;
+    height: fit-content;
+  }
+  .navigation .postBtn {
+    height: 40px;
+    width: 40px;
+    display: block;
+    background: white;
+    position: absolute;
+    z-index: 1;
+    border-radius: 6px;
+    cursor: pointer;
+    -moz-transition: all 0.35s ease-in;
+    -o-transition: all 0.35s ease-in;
+    -webkit-transition: all 0.35s ease-in;
+    transition: all 0.35s ease-in;
+  }
+  .navigation .postBtn:after {
+    content: "☰";
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+    color: #575757;
+    font-weight: 100;
+    font-size: 1.8em;
+    -moz-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  .navigation .postToggle {
+    display: none;
+  }
+  .navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: initial;
+  }
+  .navigation li {
+    font-size: xxx-large;
+    position: absolute;
+    overflow: hidden;
+    text-indent: 9px;
+    height: 50px;
+    width: 50px;
+    background: #d6d6d6;
+    border-radius: 50%;
+    opacity: 0;
+    border: 1px solid white;
+    -moz-background-clip: padding;
+    -o-background-clip: padding-box;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+    -moz-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transition: -moz-transform 0.3s cubic-bezier(0.48, 0.13, 0.42, 1.45), opacity 0.2s ease-in;
+    -o-transition: -o-transform 0.3s cubic-bezier(0.48, 0.13, 0.42, 1.45), opacity 0.2s ease-in;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.48, 0.13, 0.42, 1.45), opacity 0.2s ease-in;
+    transition: transform 0.3s cubic-bezier(0.48, 0.13, 0.42, 1.45), opacity 0.2s ease-in;
+  }
+  .navigation li:nth-child(2) {
+    transition-delay: 0.025s;
+  }
+  .navigation li:nth-child(3) {
+    transition-delay: 0.05s;
+  }
+  .navigation li:nth-child(4) {
+    transition-delay: 0.075s;
+  }
+  .navigation li:nth-child(5) {
+    transition-delay: 0.1s;
+  }
+  .navigation li a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .navigation .text {
+    background: #363636;
+  }
+  .navigation .quote {
+    background: #d44f2e;
+  }
+  .navigation .welcome {
+    background: black;
+  }
+  .navigation .about {
+    background: black;
+  }
+  .navigation .work {
+    background: black;
+  }
+  
+  .postToggle:checked ~ .postBtn {
+    background: whitesmoke;
+    -moz-transform: scale(0.85, 0.85);
+    -ms-transform: scale(0.85, 0.85);
+    -webkit-transform: scale(0.85, 0.85);
+    transform: scale(0.85, 0.85);
+  }
+  .postToggle:checked ~ .postBtn:after {
+    content: "𝌦";
+    line-height: 38px;
+  }
+  .postToggle:checked ~ ul li {
+    opacity: 1;
+  }
+  .postToggle:checked ~ ul .text {
+    -moz-transform: translate(0, -175%);
+    -ms-transform: translate(0, -175%);
+    -webkit-transform: translate(0, -175%);
+    transform: translate(0, -175%);
+  }
+  .postToggle:checked ~ ul .text:hover {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .postToggle:checked ~ ul .quote {
+    -moz-transform: translate(125%, -130%);
+    -ms-transform: translate(125%, -130%);
+    -webkit-transform: translate(125%, -130%);
+    transform: translate(125%, -130%);
+  }
+  .postToggle:checked ~ ul .quote:hover {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .postToggle:checked ~ ul .welcome {
+    -moz-transform: translate(175%, 0%);
+    -ms-transform: translate(175%, 0%);
+    -webkit-transform: translate(175%, 0%);
+    transform: translate(175%, 0%);
+  }
+  .postToggle:checked ~ ul .welcome:hover {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .postToggle:checked ~ ul .about {
+    -moz-transform: translate(125%, 130%);
+    -ms-transform: translate(125%, 130%);
+    -webkit-transform: translate(125%, 130%);
+    transform: translate(125%, 130%);
+  }
+  .postToggle:checked ~ ul .about:hover {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .postToggle:checked ~ ul .work {
+    -moz-transform: translate(0px, 175%);
+    -ms-transform: translate(0px, 175%);
+    -webkit-transform: translate(0px, 175%);
+    transform: translate(0px, 175%);
+  }
+  .postToggle:checked ~ ul .work:hover {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  

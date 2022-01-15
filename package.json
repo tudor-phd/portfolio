@@ -1,25 +1,36 @@
 {
-  "name": "my-app",
+  "homepage": "http://tudor-dan.github.io/portfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "framer-motion": "4.1.17",
+    "hover-effect": "^1.1.0",
     "jquery": "^3.6.0",
+    "magicmouse.js": "^1.2.1",
     "react": "^17.0.2",
+    "react-3d-hover": "^1.1.1",
+    "react-device-detect": "^2.1.2",
     "react-dom": "^17.0.2",
+    "react-intersection-observer": "^8.33.1",
+    "react-morphing-modal": "^0.2.2",
     "react-router-dom": "^6.1.1",
     "react-scripts": "4.0.3",
+    "react-tsparticles": "^1.39.0",
     "three": "^0.135.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "gh-pages": "^3.2.3",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

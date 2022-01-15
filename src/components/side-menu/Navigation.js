@@ -11,10 +11,10 @@ const variants = {
     }
 };
 
-export const Navigation = () => (
+export const Navigation = ({isOpen}) => (
     <motion.ul variants={variants}>
         {itemIds.map(i => (
-            <MenuItem i={i.id} key={i.id} title={i.title} />
+            <MenuItem i={i.id} key={i.id} title={i.title} anchor={i.anchor}/>
         ))}
     </motion.ul>
 );
@@ -22,14 +22,17 @@ export const Navigation = () => (
 const itemIds = [
     {
         id: '0',
-        title: 'ABOUT'
+        title: 'WELCOME',
+        anchor: 'first-section'
     },
     {
         id: '1',
-        title: 'WORK'
+        title: 'ABOUT',
+        anchor: 'second-section'
     },
     {
         id: '2',
-        title: 'SKILLS'
+        title: 'WORK',
+        anchor: 'third-section'
     },
 ];

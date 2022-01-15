@@ -56,7 +56,7 @@ const BlackHole = () => {
             mouse = { x: originX / 2, y: -(originY / 2) + canvas2.height, moved: false };
             $(document).mousemove(function (e) {
                 mouse.x = e.pageX;
-                mouse.y = -e.pageY + canvas2.height;
+                mouse.y = -e.pageY*2 + canvas2.height;
                 mouse.moved = true;
             });
 

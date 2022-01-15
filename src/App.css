@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color:white
 }
 
 /* body {
@@ -14,9 +15,17 @@
   align-items: center;
 } */
 
+/* body #magicMouseCursor {
+  border: 1px solid rgb(156,27,255) !important;
+}
+
+body #magicPointer {
+  background: rgb(156,27,255) !important;
+} */
+
 nav {
-  z-index: 3;
-  position: absolute;
+  z-index: 4;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -24,7 +33,7 @@ nav {
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -40,12 +49,16 @@ button {
   -ms-user-select: none;
   cursor: pointer;
   position: absolute;
-  top: 18px;
-  left: 15px;
-  width: 50px;
-  height: 50px;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: transparent;
+  background: white;
+}
+
+button svg {
+  margin-top: 6px;
 }
 
 ul,
@@ -104,3 +117,29 @@ li {
 .app-section{
   height: 100vh;
 }
+
+.second-section {
+	height: 100vh;
+	background-color: black;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top:5%;
+  }
+  .RMM__container--is-active{
+cursor: default !important;
+  }
+  .third-section {
+    /* height: 100vh; */
+    background-color: white;
+    background: url("./images/work.jpg");
+    background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  padding-top: 5%;
+    }
+
+    #tsparticles{
+      position: absolute;
+    }
+    .section-title{
+      font-size: xx-large
+    }
