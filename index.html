@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/portfolio/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/portfolio/logo192.png"/><link rel="manifest" href="/portfolio/manifest.json"/><title>React App</title><script id="2d-fragment-shader" type="x-shader/x-fragment">// <![CDATA[
+
+                  // Look below at line 23 for realism.
+
+                  #ifdef GL_ES
+                  precision mediump float;
+                  #endif
+
+                  #define PI 3.14159265359
+
+                  uniform sampler2D u_image;
+                  varying vec2 v_texCoord;
+
+                  uniform vec2 u_resolution;
+                  uniform vec2 u_mouse;
+                  uniform float u_mass;
+                  uniform float u_time;
+                  uniform float u_clickedTime;
+
+                  vec2 rotate(vec2 mt, vec2 st, float angle){
+                      float cos = cos((angle + u_clickedTime) * PI); // try replacing * 1.0 with * PI
+                      float sin = sin(angle * 0.0); // try removing the * 0.0
+
+                      // Uncomment these two lines for realism
+                      //float cos = cos(angle) * (u_time * 0.3);
+                      //float sin = sin(angle) * (u_time * 0.3);
+
+                      float nx = (cos * (st.x - mt.x)) + (sin * (st.y - mt.y)) + mt.x;
+                      float ny = (cos * (st.y - mt.y)) - (sin * (st.x - mt.x)) + mt.y;
+                      return vec2(nx, ny);
+                  }
+
+                  void main() {
+                       vec2 st = vec2(gl_FragCoord.x, u_resolution.y - gl_FragCoord.y)/u_resolution;
+                      vec2 mt = vec2(u_mouse.x, u_resolution.y - u_mouse.y)/u_resolution;
+
+                      float dx = st.x - mt.x;
+                      float dy = st.y - mt.y;
+
+                      float dist = sqrt(dx * dx + dy * dy);
+                      float pull = u_mass / (dist * dist);
+
+                       vec3 color = vec3(0.0);
+
+                      vec2 r = rotate(mt,st,pull);
+                      vec4 imgcolor = texture2D(u_image, r);
+                      color = vec3(
+                          (imgcolor.x - (pull * 0.25)),
+                          (imgcolor.y - (pull * 0.25)),
+                          (imgcolor.z - (pull * 0.25))
+                      );
+
+
+                       gl_FragColor = vec4(color,1.);
+                  }
+                  // ]]></script><script id="2d-vertex-shader" type="x-shader/x-vertex">// <![CDATA[
+                      attribute vec2 a_position;
+                      attribute vec2 a_texCoord;
+
+                      varying vec2 v_texCoord;
+                      void main() {
+                          gl_Position = vec4(a_position, 0, 1);
+                          v_texCoord = a_texCoord;
+                      }
+                      // ]]></script><link href="/portfolio/static/css/2.23c19581.chunk.css" rel="stylesheet"><link href="/portfolio/static/css/main.f68eb132.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function r(r){for(var n,i,a=r[0],c=r[1],l=r[2],p=0,s=[];p<a.length;p++)i=a[p],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&s.push(o[i][0]),o[i]=0;for(n in c)Object.prototype.hasOwnProperty.call(c,n)&&(e[n]=c[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,l||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,a=1;a<t.length;a++){var c=t[a];0!==o[c]&&(n=!1)}n&&(u.splice(r--,1),e=i(i.s=t[0]))}return e}var n={},o={1:0},u=[];function i(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,i),t.l=!0,t.exports}i.e=function(e){var r=[],t=o[e];if(0!==t)if(t)r.push(t[2]);else{var n=new Promise((function(r,n){t=o[e]=[r,n]}));r.push(t[2]=n);var u,a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"570b5cc2"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(l);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;c.message="Loading chunk "+e+" failed.\n("+n+": "+u+")",c.name="ChunkLoadError",c.type=n,c.request=u,t[1](c)}o[e]=void 0}};var l=setTimeout((function(){u({type:"timeout",target:a})}),12e4);a.onerror=a.onload=u,document.head.appendChild(a)}return Promise.all(r)},i.m=e,i.c=n,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,r){if(1&r&&(e=i(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)i.d(t,n,function(r){return e[r]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="/portfolio/",i.oe=function(e){throw console.error(e),e};var a=this.webpackJsonpportfolio=this.webpackJsonpportfolio||[],c=a.push.bind(a);a.push=r,a=a.slice();for(var l=0;l<a.length;l++)r(a[l]);var f=c;t()}([])</script><script src="/portfolio/static/js/2.ce7bbc1d.chunk.js"></script><script src="/portfolio/static/js/main.93442981.chunk.js"></script></body></html>
